@@ -25,19 +25,6 @@ To successfully complete this challenge, you will
     ```bash
     az login
     ```
-4. Create a Service Principal for Terraform
-
-    ```bash
-    az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscription_id>"
-    ```
-5. Create a `terraform.tfvars` file with the following content:
-
-    ```bash
-    subscription_id = "<subscription_id>"
-    client_id = "<client_id>"
-    client_secret = "<client_secret>"
-    tenant_id = "<tenant_id>"
-    ```
    
 6. Run the following commands:
 
@@ -47,3 +34,8 @@ To successfully complete this challenge, you will
     terraform apply
     ```
 7. Login to Azure Portal and check the created resources
+ 
+- SQL Server
+- Container Instance
+- App Service
+

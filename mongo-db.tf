@@ -32,17 +32,14 @@ resource "azurerm_container_group" "eats_website_mongo_container" {
     }
 
     commands = [
-      "--auth",
+      "mongod",
       "--bind_ip",
-      "0.0.0.0"
+      "0.0.0.0",
+      "--auth"
     ]
   }
 
   tags = {
     Environment = "dev"
   }
-}
-moved {
-  from = azurerm_container_group.example
-  to   = azurerm_container_group.eats_website_mongo_container
 }
