@@ -26,9 +26,8 @@ resource "azurerm_windows_web_app" "eats_website_as" {
     productImagesUrl             = "https://raw.githubusercontent.com/microsoft/TailwindTraders-Backend/master/Deploy/tailwindtraders-images/product-detail"
     ApiUrl                       = ""
     ApiUrlShoppingCart           = ""
-    MongoConnectionString        = ""
-    SqlConnectionString          = ""
-    // "Server=tcp:${azurerm_mssql_server.eats_website.fully_qualified_domain_name},1433;Initial Catalog=${azurerm_mssql_database.test.name};Persist Security Info=False;User ID=${azurerm_mssql_server.eats_website.administrator_login};Password=${azurerm_mssql_server.eats_website.administrator_login_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+    MongoConnectionString        = "mongodb://admin:${random_password.mongo_admin_password.result}@${azurerm_container_group.eats_website_mongo_container.ip_address}:27017"
+    SqlConnectionString          = "Server=tcp:${azurerm_mssql_server.eats_website.fully_qualified_domain_name},1433;Initial Catalog=${azurerm_mssql_database.test.name};Persist Security Info=False;User ID=${azurerm_mssql_server.eats_website.administrator_login};Password=${azurerm_mssql_server.eats_website.administrator_login_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
     Personalizer__ApiKey         = ""
     Personalizer__Endpoint       = ""
   }

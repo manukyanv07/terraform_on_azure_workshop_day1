@@ -20,7 +20,10 @@ resource "azurerm_container_group" "eats_website_mongo_container" {
     image  = "mongo"
     cpu    = "0.5"
     memory = "1.5"
-
+    exposed_port {
+      port     = 27017
+      protocol = "TCP"
+    }
     environment_variables = {
       MONGO_INITDB_ROOT_USERNAME = "admin"
       MONGO_INITDB_ROOT_PASSWORD = random_password.mongo_admin_password.result
