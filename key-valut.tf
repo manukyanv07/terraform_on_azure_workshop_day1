@@ -13,7 +13,7 @@ resource "azurerm_key_vault" "eats_website_key_vault" {
 }
 
 data "azuread_service_principal" "terraform_service_principal" {
-  display_name = "github-actions"
+  display_name = "terraform"
 }
 
 resource "azurerm_key_vault_access_policy" "default_policy" {
