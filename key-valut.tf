@@ -12,15 +12,11 @@ resource "azurerm_key_vault" "eats_website_key_vault" {
   sku_name = "standard"
 }
 
-data "azuread_service_principal" "terraform_service_principal" {
-  display_name = "terraform"
-}
-
 resource "azurerm_key_vault_access_policy" "default_policy" {
   key_vault_id = azurerm_key_vault.eats_website_key_vault.id
   tenant_id    = data.azurerm_client_config.current.tenant_id
   object_id    = data.azurerm_client_config.current.object_id
-  application_id = data.azuread_service_principal.terraform_service_principal.object_id
+  application_id = "9c39a815-e3b5-4dd7-a887-ae2bc8ba0210"
   lifecycle {
     create_before_destroy = true
   }
