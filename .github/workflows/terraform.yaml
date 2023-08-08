@@ -3,7 +3,7 @@ name: Terraform Deployment
 on:
   push:
     paths:
-      - 'path/to/your/terraform/files/**'  # Adjust to your Terraform file paths
+      - './**'  # Adjust to your Terraform file paths
 
 jobs:
   deploy:
