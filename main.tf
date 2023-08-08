@@ -7,8 +7,8 @@ terraform {
   backend "azurerm" {
     resource_group_name = "mansu-web-rg"
     container_name       = "tfstate"
-    storage_account_name = "devops3dcb70f641"
-    access_key = "uh58iyAAzlL/0Oa7ptgjaInbozH2pnnX/b5Fhod8XYNdMk4YNpi+L2q/pUKKYkubnv8PvCka8MMc+ASte+nVrg=="
+    storage_account_name = "manuscriptdevops"
+    access_key = "8q850CLhhrLSHARU2T6n0AhzJarwyKYI81WPgODfg2tc476l/C3KWtREvpLYgknfmhmhk6wMqaTo+AStG+ArEQ=="
     key = "terraform.tfstate"
   }
 }
