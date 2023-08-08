@@ -1,12 +1,12 @@
 name: Terraform Deployment
 
 on:
-  branches:
-    - develop
-    - main
   push:
     paths:
       - '**'
+  branches:
+    - develop
+    - main
 
 jobs:
   deploy:
