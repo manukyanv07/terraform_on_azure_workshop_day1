@@ -1,0 +1,35 @@
+name: Terraform Deployment
+
+on:
+  push:
+    paths:
+      - 'path/to/your/terraform/files/**'  # Adjust to your Terraform file paths
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Azure CLI
+        uses: azure/setup-azure-cli@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Set subscription context
+        run: az account set --subscription ${{ secrets.ARM_SUBSCRIPTION_ID }}
+
+      - name: Install Terraform
+        run: |
+          curl -LO "https://releases.hashicorp.com/terraform/0.15.5/terraform_0.15.5_linux_amd64.zip"
+          unzip terraform_0.15.5_linux_amd64.zip
+          sudo mv terraform /usr/local/bin/
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
+

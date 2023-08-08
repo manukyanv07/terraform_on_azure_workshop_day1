@@ -18,8 +18,8 @@ resource "azurerm_windows_web_app" "eats_website_as" {
       dotnet_version = "v4.0"
       current_stack  = "dotnetcore"
     }
-
   }
+
   app_settings = {
     WEBSITE_NODE_DEFAULT_VERSION = "10.15.2"
     SCM_COMMAND_IDLE_TIMEOUT     = "1800"
