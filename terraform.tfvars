@@ -1,3 +1,3 @@
 main_location = "eastus"
-name_prefix   = "manus-web"
+name_prefix   = "manusweb"
 docker_image  = ""

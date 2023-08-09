@@ -5,10 +5,10 @@ terraform {
     }
   }
   backend "azurerm" {
-    resource_group_name = "mansu-web-rg"
+    resource_group_name = "devops"
     container_name       = "tfstate"
-    storage_account_name = "manuscriptdevops"
-    access_key = "8q850CLhhrLSHARU2T6n0AhzJarwyKYI81WPgODfg2tc476l/C3KWtREvpLYgknfmhmhk6wMqaTo+AStG+ArEQ=="
+    storage_account_name = "terraformtfstate939348"
+    access_key = "feoL6HsHmjFnlWSiVdDBbSB9qACGfGehWgjvCNbItxOTkphfYztp8RsnBQL7fM0iVFYHDyhwbtLY+ASt9A1Hag=="
     key = "terraform.tfstate"
   }
 }
