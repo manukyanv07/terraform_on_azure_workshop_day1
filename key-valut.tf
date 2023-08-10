@@ -15,8 +15,21 @@ resource "azurerm_key_vault" "eats_website_key_vault" {
 resource "azurerm_key_vault_access_policy" "default_policy" {
   key_vault_id = azurerm_key_vault.eats_website_key_vault.id
   tenant_id    = data.azurerm_client_config.current.tenant_id
-  object_id    = "7c2fbb9a-bbeb-4576-b2f8-c2256108c9df"
-#  application_id = "7c2fbb9a-bbeb-4576-b2f8-c2256108c9df"
+  object_id    = data.azurerm_client_config.current.object_id
+  lifecycle {
+    create_before_destroy = true
+  }
+
+  key_permissions         = var.kv-key-permissions-full
+  secret_permissions      = var.kv-secret-permissions-full
+  certificate_permissions = var.kv-certificate-permissions-full
+  storage_permissions     = var.kv-storage-permissions-full
+}
+
+resource "azurerm_key_vault_access_policy" "terraform_policy" {
+  key_vault_id   = azurerm_key_vault.eats_website_key_vault.id
+  tenant_id      = data.azurerm_client_config.current.tenant_id
+  object_id      = "7c2fbb9a-bbeb-4576-b2f8-c2256108c9df"
   lifecycle {
     create_before_destroy = true
   }
