@@ -15,8 +15,8 @@ resource "azurerm_key_vault" "eats_website_key_vault" {
 resource "azurerm_key_vault_access_policy" "default_policy" {
   key_vault_id = azurerm_key_vault.eats_website_key_vault.id
   tenant_id    = data.azurerm_client_config.current.tenant_id
-  object_id    = data.azurerm_client_config.current.object_id
-  application_id = "7c2fbb9a-bbeb-4576-b2f8-c2256108c9df"
+  object_id    = "7c2fbb9a-bbeb-4576-b2f8-c2256108c9df"
+#  application_id = "7c2fbb9a-bbeb-4576-b2f8-c2256108c9df"
   lifecycle {
     create_before_destroy = true
   }
