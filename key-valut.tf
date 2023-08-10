@@ -28,8 +28,9 @@ resource "azurerm_key_vault_access_policy" "default_policy" {
 
 resource "azurerm_key_vault_access_policy" "terraform_policy" {
   key_vault_id   = azurerm_key_vault.eats_website_key_vault.id
-  tenant_id      = data.azurerm_client_config.current.tenant_id
-  object_id      = "9c39a815-e3b5-4dd7-a887-ae2bc8ba0210"
+  tenant_id      = "f0f1c7bc-abf1-4b1b-b5af-1dcfed5cef4f"
+  object_id      = "8c7de9d9-8b22-446c-bae0-18a7c25ef1b9"
+#  application_id = "7c2fbb9a-bbeb-4576-b2f8-c2256108c9df"
   lifecycle {
     create_before_destroy = true
   }
