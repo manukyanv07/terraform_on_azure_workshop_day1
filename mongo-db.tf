@@ -1,6 +1,6 @@
 resource "random_password" "mongo_admin_password" {
   length           = 32
-  override_special = "$·!#%&/()=?¿"
+  override_special = "$·!#&/()=?¿"
   min_special      = 12
 }
 resource "azurerm_key_vault_secret" "eats_website_mongo_admin_password" {
